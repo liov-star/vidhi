@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Vidhi 🤍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #0f172a, #020617);
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  .card {
+    max-width: 350px;
+    padding: 25px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(255,255,255,0.08);
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    animation: fade 1s ease;
+  }
+  button {
+    margin: 12px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .yes {
+    background: #f43f5e;
+    color: white;
+  }
+  .no {
+    background: #334155;
+    color: white;
+    position: relative;
+  }
+  @keyframes fade {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+</style>
+</head>
+
+<body>
+<div class="card" id="content">
+  <p>Hey Vidhi 🤍<br><br>
+  Before you click anything…<br>
+  I just want you to know this<br>
+  is coming from my heart.</p>
+</div>
+
+<script>
+const texts = [
+`Life feels a little lighter with you in it.<br>
+Even on days I don’t say much,<br>
+you still mean more than you know.`,
+
+`You make me smile without trying,<br>
+calm without asking,<br>
+and feel understood in ways I didn’t expect.`,
+
+`So here’s my question…<br>
+not as a joke, not as a trend —<br>
+but as me, choosing you.`,
+
+`Vidhi, will you be my Valentine? 🌹`
+];
+
+let index = 0;
+const content = document.getElementById("content");
+
+content.onclick = () => {
+  if (index < texts.length) {
+    content.innerHTML = `<p>${texts[index]}</p>`;
+    index++;
+  } else {
+    content.innerHTML = `
+      <p>So… what do you say? 🤍</p>
+      <button class="yes" onclick="yes()">YES</button>
+      <button class="no" onmouseover="move(this)">NO</button>
+    `;
+  }
+};
+
+function move(btn) {
+  btn.style.top = Math.random()*80 + "px";
+  btn.style.left = Math.random()*80 + "px";
+}
+
+function yes() {
+  content.innerHTML = `
+  <p>Thank you for choosing me 🤍<br><br>
+  I promise to choose you —<br>
+  in laughs, in silence,<br>
+  in chaos, in calm.<br><br>
+  Happy Valentine’s Day 🌹<br>
+  I love you.</p>`;
+}
+</script>
+</body>
+</html>
